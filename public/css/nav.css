@@ -1,0 +1,161 @@
+nav {
+    width: fit-content;
+    height: 100vh;
+    background-color: #0F044C;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em;
+    position: fixed;
+    z-index: 2;
+}
+
+nav label {
+    color: #EEEEEE;
+    margin: 3em auto 3em;
+    font-family: 'Ultra', serif;
+    font-size: 1.5em;
+}
+
+nav .nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+nav .nav-menu li {
+    list-style: none;
+    font-weight: 700;
+    padding: 0.5em;
+    border-radius: 20px;
+    font-size: 1.2em;
+    transition: 0.3s;
+}
+
+nav .nav-menu li:hover {
+    background-color: #EEEEEE;
+    padding: 0.5em;
+    color: #0F044C;
+    border-radius: 20px;
+}
+
+nav .nav-menu a {
+    text-decoration: none;
+    color: #EEEEEE;
+}
+
+.nav-responsive {
+    display: none;
+}
+
+#navButton {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    nav {
+        width: 100%;
+        height: fit-content;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        box-sizing: border-box;
+        align-items: center;
+        padding: 1em 2em;
+    }
+
+    .nav-responsive {
+        top: 72px;
+        display: none;
+        flex-direction: column;
+        width: fit-content;
+        height: 100vh;
+        background-color: #141E61;
+        flex-direction: column;
+        padding: 0 2em;
+        position: fixed;
+        z-index: 1;
+    }
+
+    .nav-responsive.active {
+        display: flex;
+        animation: navIn 0.2s linear forwards;
+        left: -100%;
+    }
+    
+    @keyframes navIn {
+        0% {
+            left: -100%;
+        }
+    
+        100% {
+            left: 0;
+        }
+    }
+    
+    .nav-responsive:not(.active) {
+        left: 0;
+        animation: navOut 0.2s linear forwards;
+    }
+    
+    @keyframes navOut {
+        0% {
+            left: 0;
+        }
+    
+        100% {
+            left: -100%;
+        }
+    }
+    
+
+    .nav-responsive .nav-menu li{
+        display: flex;
+    }
+
+    nav br {
+        display: none;
+    }
+
+    nav label {
+        margin: 0;
+    }
+
+    #navButton {
+        display: block;
+        color: #EEEEEE;
+        font-size: 2em;
+    }
+
+    nav .nav-menu li {
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    nav label {
+        font-size: 1.3em;
+    }
+
+    .fa-solid {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 375px) {
+    nav label {
+        font-size: 1.1em;
+    }
+
+    .fa-solid {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 320px) {
+    nav label {
+        font-size: 1em;
+    }
+
+    .fa-solid {
+        font-size: 1.1em;
+    }
+}
